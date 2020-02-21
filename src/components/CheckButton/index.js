@@ -17,7 +17,7 @@ class CheckButton extends Component {
                       });
       }}>
 
-        <img src='./checkMarker.svg' alt='check'/>
+        <img src='./check.png' alt='check'/>
 
       </div>
     );
