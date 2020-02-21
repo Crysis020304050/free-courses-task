@@ -1,0 +1,22 @@
+.checkButton {
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-color: #DBE0E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.checkButton img {
+    width: 60%;
+}
+
+.checked {
+
+    background-color: #48C1C2 !important;
+}
+
+
+
