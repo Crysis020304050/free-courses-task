@@ -1,0 +1,26 @@
+.checkedUsersContainer {
+    min-height: 44px;
+    padding: 7px 16px;
+    display: flex;
+    align-items: center;
+
+    font-family: Montserrat, serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 17px;
+
+    border: 1px solid rgba(11, 49, 87, 0.1);
+    border-bottom: none;
+}
+
+.to {
+    color: #0B3157;
+
+    opacity: 0.5;
+    width: 30px;
+}
+
+.checkedUsers{
+    color: #48C1C2;
+}

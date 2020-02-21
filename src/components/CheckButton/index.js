@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styles from './styles.module.css';
+import {updateUsers} from "../CheckedUsersList";
+
 
 class CheckButton extends Component {
   constructor (props) {
@@ -12,6 +14,7 @@ class CheckButton extends Component {
   renderButton = (className) => {
     return (
       <div className={className + " " + styles.checkButton} onClick={(e) => {
+        updateUsers(this.props.user);
         this.setState({
                         isChecked: !this.state.isChecked
                       });
