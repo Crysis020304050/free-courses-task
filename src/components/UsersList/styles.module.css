@@ -18,3 +18,9 @@
 .usersList .userContainer:last-child {
     border-bottom: 1px solid rgba(11, 49, 87, 0.1);
 }
+
+@media screen and (max-width: 400px) {
+    .usersList {
+        width: 300px;
+    }
+}
