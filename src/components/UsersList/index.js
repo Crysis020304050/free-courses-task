@@ -64,9 +64,12 @@ class UserList extends Component {
         {
           this.renderSpinner()
         }
-        {
-          this.renderUsers()
-        }
+        <div className={styles.usersContainer}>
+          {
+            this.renderUsers()
+          }
+        </div>
+
       </div>
     );
   }
