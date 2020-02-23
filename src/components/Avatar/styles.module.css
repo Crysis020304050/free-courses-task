@@ -10,3 +10,11 @@
     height: inherit;
     object-fit: cover;
 }
+
+.avatarContainer div {
+    color: white;
+    height: inherit;
+    text-align: center;
+    padding-top: 17px;
+    font-weight: 600;
+}

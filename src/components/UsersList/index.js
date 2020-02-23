@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Avatar from '../Avatar';
 import CoachText from '../CoachText';
 import CheckButton from '../CheckButton';
+import Spinner from "../Spinner";
 import styles from './styles.module.css';
 import CheckedUsersList from "../CheckedUsersList";
 import {loadJson} from "../../utils/loadJson";
@@ -12,19 +13,24 @@ class UserList extends Component {
     this.state = {
       users: [],
       error: null,
+      isFetching: true,
     };
   }
 
   loadData = () => {
-    loadJson('./users.json').then(users => {
-      this.setState({
-        users: users
+    setTimeout(() =>{
+      loadJson('./users.json').then(users => {
+        this.setState({
+          users: users.sort((a, b) => a.level - b.level),
+          isFetching: false,
+        })
+      }).catch(err => {
+        this.setState({
+          error: err,
+          isFetching: false,
+        })
       })
-    }).catch(err => {
-      this.setState({
-        error: err,
-      })
-    })
+    }, 1000)
   };
 
   componentDidMount () {
@@ -35,11 +41,18 @@ class UserList extends Component {
     const { users } = this.state;
     return users.map(user => (
       <div className={styles.userContainer} key={user.id}>
-        <Avatar src={user.src}/>
+        <Avatar user={user}/>
         <CoachText user={user}/>
         <CheckButton user={user}/>
       </div>
     ));
+  };
+
+  renderSpinner = () => {
+    const { isFetching } = this.state;
+    if (isFetching) {
+      return <Spinner/>;
+    }
   };
 
   render () {
@@ -47,6 +60,9 @@ class UserList extends Component {
       <div className={styles.usersList}>
         {
           <CheckedUsersList/>
+        }
+        {
+          this.renderSpinner()
         }
         {
           this.renderUsers()

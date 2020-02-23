@@ -8,9 +8,9 @@ export function updateUsers(user) {
         this.setState({
             users: this.state.users.filter(el => el !== user)
         });
-        return;
+    } else {
+        this.setState({users: [...this.state.users, user]});
     }
-    this.setState({users: [...this.state.users, user]});
 }
 
 class CheckedUsersList extends Component {
