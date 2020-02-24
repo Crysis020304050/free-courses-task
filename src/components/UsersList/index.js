@@ -3,7 +3,7 @@ import Avatar from '../Avatar';
 import CoachText from '../CoachText';
 import CheckButton from '../CheckButton';
 import Spinner from "../Spinner";
-import styles from './styles.module.css';
+import styles from './UsersList.module.css';
 import CheckedUsersList from "../CheckedUsersList";
 import {loadJson} from "../../utils/loadJson";
 

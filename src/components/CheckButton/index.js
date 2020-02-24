@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './styles.module.css';
+import styles from './CheckButton.module.css';
 import {updateUsers} from "../CheckedUsersList";
 
 let buttons = [];

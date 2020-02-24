@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.css';
+import styles from './CoachText.module.css';
 
 function CoachText (props) {
   const {firstName, lastName, level} = props.user;

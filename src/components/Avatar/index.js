@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './styles.module.css';
+import styles from './Avatar.module.css';
 import ColorHash from 'color-hash'
 
 class Avatar extends Component {

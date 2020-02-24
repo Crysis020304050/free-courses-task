@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import styles from './styles.module.css';
+import styles from './CheckedUsersList.module.css';
 import {uncheckUser} from '../CheckButton';
 import createUserText from '../../utils/createUserTextWithCommaOrWithoutIt';
 
