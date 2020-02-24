@@ -8,10 +8,10 @@ export function uncheckUser(user) {
     buttons.forEach(button => {
         if (user.id === button.props.user.id) {
             button.setState({
-                isChecked: false
+                isChecked: false,
             })
         }
-    })
+    });
 }
 
 class CheckButton extends Component {
@@ -20,6 +20,7 @@ class CheckButton extends Component {
         this.state = {
             isChecked: false
         };
+        buttons.push(this);
     }
 
     renderButton = (className) => {
@@ -30,12 +31,11 @@ class CheckButton extends Component {
                 this.setState({
                     isChecked: !this.state.isChecked
                 });
-            }}><img src='./check.png' alt='check'/></div>
+            }}><img src='./check.png' alt='V'/></div>
         );
     };
 
     render() {
-        buttons.push(this);
         if (this.state.isChecked) {
             return (
                 this.renderButton(styles.checked)
