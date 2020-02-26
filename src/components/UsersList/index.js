@@ -6,6 +6,7 @@ import Spinner from "../Spinner";
 import styles from './styles.module.css';
 import CheckedUsersList from "../CheckedUsersList";
 import {loadJson} from "../../utils/loadJson";
+import _ from 'lodash';
 
 class UserList extends Component {
   constructor (props) {
@@ -21,7 +22,7 @@ class UserList extends Component {
     setTimeout(() =>{
       loadJson('./users.json').then(users => {
         this.setState({
-          users: users.sort((a, b) => a.level - b.level),
+          users: users.sort((a, b) => a.level - b.level).map(user => ({...user, isSelected: false})),
           isFetching: false,
         })
       }).catch(err => {
@@ -37,13 +38,21 @@ class UserList extends Component {
     this.loadData();
   }
 
+  selectUserByIndex = (index) => {
+    const newUsersArray = _.clone(this.state.users);
+    newUsersArray[index].isSelected = !newUsersArray[index].isSelected;
+    this.setState({
+      users: newUsersArray,
+    })
+  };
+
   renderUsers = () => {
     const { users } = this.state;
-    return users.map(user => (
+    return users.map((user, index) => (
       <div className={styles.userContainer} key={user.id}>
         <Avatar user={user}/>
         <CoachText user={user}/>
-        <CheckButton user={user}/>
+        <CheckButton selectUserByIndex={this.selectUserByIndex} user={user} index={index}/>
       </div>
     ));
   };
@@ -59,7 +68,7 @@ class UserList extends Component {
     return (
       <div className={styles.usersList}>
         {
-          <CheckedUsersList/>
+          <CheckedUsersList selectUserByIndex={this.selectUserByIndex} users={this.state.users}/>
         }
         {
           this.renderSpinner()

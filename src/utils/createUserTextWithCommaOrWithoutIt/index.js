@@ -1,6 +1,6 @@
-export default (arr, user) => {
+export default (arr, user, index) => {
     const {firstName, lastName} = user;
-    if (arr[arr.length - 1] === user) {
+    if (arr.length === index) {
         return `${firstName} ${lastName}`
     }
     else {
